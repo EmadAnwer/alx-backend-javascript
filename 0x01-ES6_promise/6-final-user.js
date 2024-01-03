@@ -8,7 +8,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   ]).then((values) => {
     for (const value of values) {
       if (value.status === 'rejected') {
-        value.value = `${value.reason.message}`;
+        value.value = `${String(value.reason)}`;
         delete value.reason;
       }
     }
