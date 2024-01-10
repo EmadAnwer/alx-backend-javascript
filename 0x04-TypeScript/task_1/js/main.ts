@@ -38,7 +38,8 @@ const printTeacher: PrintTeacherFunction = (firstName, lastName) => {
 
 console.log(printTeacher('John', 'Doe'));
 interface StudentConstructor {
-  (firstName: string, lastName: string): string;
+  firstName: string;
+  lastName: string;
 }
 interface StudentClassInterface {
   firstName: string;
@@ -50,7 +51,7 @@ class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
 
-  constructor(firstName: string, lastName: string): StudentConstructor {
+  constructor({ firstName, lastName }: StudentConstructor) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
@@ -63,7 +64,7 @@ class StudentClass implements StudentClassInterface {
   }
 }
 
-const student1 = new StudentClass('John', 'Doe');
+const student1 = new StudentClass({ firstName: 'John', lastName: 'Doe' });
 console.log(student1.workOnHomework());
 console.log(student1.displayName());
 console.log(student1.firstName);
