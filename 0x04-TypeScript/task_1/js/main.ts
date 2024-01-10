@@ -1,29 +1,30 @@
-interface Student {
-  name: string;
-  age: number;
+interface Teacher {
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
   location: string;
+  [key: string]: unknown;
 }
 
-const s1: Student = { name: 'Emad', age: 26, location: 'Egypt' };
-const s2: Student = { name: 'Ali', age: 23, location: 'Egypt' };
-const studentsList: Array<Student> = [s1, s2];
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+const teacher3: Teacher = {
+  firstName: 'John',
+  fullTimeEmployee: false,
+  lastName: 'Doe',
+  location: 'London',
+  contract: false,
+};
+console.log(teacher3);
 
-// Create a table element
-const table = document.createElement('table');
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
+};
 
-// Iterate over the studentsList array
-studentsList.forEach(student => {
-  // Create a new row for each student
-  const row = table.insertRow();
-
-  // Create cells for each property of the student
-  const nameCell = row.insertCell(0);
-  const locationCell = row.insertCell(1);
-
-  // Set the text content of the cells
-  nameCell.textContent = student.name;
-  locationCell.textContent = student.location;
-});
-
-// Append the table to the body of the document
-document.body.appendChild(table);
+console.log(director1);
