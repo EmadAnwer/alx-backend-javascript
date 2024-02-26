@@ -4,6 +4,6 @@ process.stdin.on('data', (data) => {
   console.log(`Your name is: ${data.toString()}`);
 });
 
-process.on('exit', () => {
+process.stdin.on('end', () => {
   console.log('This important software is now closing');
 });
