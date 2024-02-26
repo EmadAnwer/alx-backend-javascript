@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = function countStudents(path) {
+function countStudents (path) {
   let data;
   try {
     data = fs.readFileSync(path).toString().split('\n');
@@ -32,4 +32,6 @@ module.exports = function countStudents(path) {
       ].join(', ')}`
     );
   }
-};
+}
+
+module.exports = countStudents;
