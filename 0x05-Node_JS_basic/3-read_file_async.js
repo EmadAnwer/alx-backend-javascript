@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 
+// eslint-disable-next-line space-before-function-paren
 async function countStudents (path) {
   let data;
   try {
@@ -34,6 +35,7 @@ async function countStudents (path) {
     console.log(
       `Number of students in ${field}: ${fields[field].length}. List: ${fields[
         field
+      // eslint-disable-next-line comma-dangle
       ].join(', ')}`
     );
   }
