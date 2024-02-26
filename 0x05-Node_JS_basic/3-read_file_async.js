@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 
-async function countStudents(path) {
+async function countStudents (path) {
   let data;
   try {
     data = await fs.readFile(path);
@@ -34,7 +34,7 @@ async function countStudents(path) {
     console.log(
       `Number of students in ${field}: ${fields[field].length}. List: ${fields[
         field
-      ].join(', ')}`,
+      ].join(', ')}`
     );
   }
 }
