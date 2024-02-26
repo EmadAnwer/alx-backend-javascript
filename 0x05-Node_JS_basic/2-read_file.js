@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function countStudents (path) {
+function countStudents(path) {
   let data;
   try {
     data = fs.readFileSync(path).toString().split('\n');
@@ -13,8 +13,11 @@ function countStudents (path) {
 
   const firstnameIndex = data[0].split(',').indexOf('firstname');
   const fieldIndex = data[0].split(',').indexOf('field');
+  // eslint-disable-next-line no-plusplus
   for (let i = 1; i < data.length; i++) {
+    // eslint-disable-next-line no-continue
     if (data[i] === '') continue;
+    // eslint-disable-next-line no-plusplus
     count++;
     const row = data[i].split(',');
     if (fields[row[fieldIndex]]) {
@@ -25,11 +28,12 @@ function countStudents (path) {
   }
   console.log(`Number of students: ${count}`);
 
+  // eslint-disable-next-line guard-for-in
   for (const field in fields) {
     console.log(
       `Number of students in ${field}: ${fields[field].length}. List: ${fields[
         field
-      ].join(', ')}`
+      ].join(', ')}`,
     );
   }
 }
