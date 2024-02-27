@@ -4,11 +4,11 @@ const fs = require('fs');
 function countStudents(path) {
   return new Promise((resolve, reject) => {
     // eslint-disable-next-line consistent-return
-    fs.readFile(path, (error, data) => {
+    fs.readFile(path, (error, dataBuffer) => {
       if (error) {
         return reject();
       }
-      data.toString().split('\n');
+      const data = dataBuffer.toString().split('\n');
       let count = 0;
       const fields = {};
 
