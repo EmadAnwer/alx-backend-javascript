@@ -1,10 +1,14 @@
-import { readFile } from 'fs/promises';
+import { readFile } from 'fs';
 
 async function readDatabase(path) {
-  return readFile(path)
-    .then((dataBuffer) => {
+  return new Promise((resolve, reject) => {
+    // eslint-disable-next-line consistent-return
+    readFile(path, (error, dataBuffer) => {
+      if (error) {
+        return reject();
+      }
       const data = dataBuffer.toString().split('\n');
-
+      let count = 0;
       const fields = {};
 
       const firstnameIndex = data[0].split(',').indexOf('firstname');
@@ -14,7 +18,7 @@ async function readDatabase(path) {
         // eslint-disable-next-line no-continue
         if (data[i] === '') continue;
         // eslint-disable-next-line no-plusplus
-
+        count++;
         const row = data[i].split(',');
         if (fields[row[fieldIndex]]) {
           fields[row[fieldIndex]].push(row[firstnameIndex]);
@@ -22,11 +26,24 @@ async function readDatabase(path) {
           fields[row[fieldIndex]] = [row[firstnameIndex]];
         }
       }
-      return fields;
-    })
-    .catch(() => {
-      throw new Error('Cannot load the database');
+      console.log(`Number of students: ${count}`);
+
+      // eslint-disable-next-line guard-for-in
+      for (const field in fields) {
+        console.log(
+          `Number of students in ${field}: ${
+            fields[field].length
+          }. List: ${fields[
+            field
+            // eslint-disable-next-line comma-dangle
+          ].join(', ')}`
+        );
+      }
+      resolve(fields);
     });
+  }).catch(() => {
+    throw new Error('Cannot load the database');
+  });
 }
 
 export default readDatabase;
