@@ -37,7 +37,7 @@ function countStudents(path) {
         }. List: ${fields[
           field
           // eslint-disable-next-line comma-dangle
-        ].join(', ')}`;
+        ].join(', ')}\n`;
       }
       resolve(studentsData);
     });
