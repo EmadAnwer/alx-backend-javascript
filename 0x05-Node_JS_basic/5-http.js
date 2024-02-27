@@ -54,10 +54,14 @@ const app = http
     }
     if (req.url === '/students') {
       const path = process.argv[2];
-      res.setHeader('Content-Type', 'text/plain');
       countStudents(path)
-        .then((studentsData) => res.end(studentsData))
+        .then((data) => {
+          res.setHeader('Content-Type', 'text/plain');
+          res.end(data);
+        })
         .catch((error) => {
+          res.setHeader('Content-Type', 'text/plain');
+          res.statusCode = 404;
           res.end(error.message);
         });
     } else {
