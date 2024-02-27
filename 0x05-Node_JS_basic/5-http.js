@@ -58,7 +58,7 @@ const app = http
       countStudents(path)
         .then((studentsData) => res.end(studentsData))
         .catch((error) => {
-          console.log(error);
+          res.end(error.message);
         });
     } else {
       res.setHeader('Content-Type', 'text/plain');
