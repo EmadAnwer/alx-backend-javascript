@@ -61,7 +61,7 @@ const app = http
         })
         .catch((error) => {
           res.setHeader('Content-Type', 'text/plain');
-          res.statusCode = 404;
+          res.statusCode = 200;
           res.end(error.message);
         });
     } else {
