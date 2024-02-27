@@ -26,19 +26,7 @@ async function readDatabase(path) {
           fields[row[fieldIndex]] = [row[firstnameIndex]];
         }
       }
-      console.log(`Number of students: ${count}`);
 
-      // eslint-disable-next-line guard-for-in
-      for (const field in fields) {
-        console.log(
-          `Number of students in ${field}: ${
-            fields[field].length
-          }. List: ${fields[
-            field
-            // eslint-disable-next-line comma-dangle
-          ].join(', ')}`
-        );
-      }
       resolve(fields);
     });
   }).catch(() => {
