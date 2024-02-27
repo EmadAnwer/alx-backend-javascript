@@ -50,7 +50,7 @@ const app = http
   .createServer((req, res) => {
     if (req.url === '/') {
       res.setHeader('Content-Type', 'text/plain');
-      return res.end('Hello Holberton School!');
+      return res.end('Hello Holbertoxn School!');
     }
     if (req.url === '/students') {
       const path = process.argv[2];
