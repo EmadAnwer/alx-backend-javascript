@@ -50,7 +50,7 @@ const app = http
   .createServer((req, res) => {
     if (req.url === '/') {
       res.setHeader('Content-Type', 'text/plain');
-      return res.end('Hello Holbertoxn School!');
+      return res.end('Hello Holberton School!');
     }
     if (req.url === '/students') {
       const path = process.argv[2];
@@ -61,7 +61,6 @@ const app = http
         })
         .catch((error) => {
           res.setHeader('Content-Type', 'text/plain');
-          res.statusCode = 200;
           res.end(error.message);
         });
     } else {
