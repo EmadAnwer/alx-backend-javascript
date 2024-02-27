@@ -32,7 +32,7 @@ function countStudents(path) {
 
       // eslint-disable-next-line guard-for-in
       for (const field in fields) {
-        studentsData += `Number of students in ${field}: ${
+        studentsData += `Number of x in ${field}: ${
           fields[field].length
         }. List: ${fields[
           field
