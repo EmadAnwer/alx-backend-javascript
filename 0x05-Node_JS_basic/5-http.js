@@ -61,7 +61,7 @@ const app = http
         })
         .catch((error) => {
           res.setHeader('Content-Type', 'text/plain');
-          res.end(error.message);
+          res.end(`This is the list of our students\n${error.message}`);
         });
     }
   })
