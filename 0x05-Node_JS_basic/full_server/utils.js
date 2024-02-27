@@ -17,7 +17,6 @@ async function readDatabase(path) {
         // eslint-disable-next-line no-continue
         if (data[i] === '') continue;
         // eslint-disable-next-line no-plusplus
-        count++;
         const row = data[i].split(',');
         if (fields[row[fieldIndex]]) {
           fields[row[fieldIndex]].push(row[firstnameIndex]);
