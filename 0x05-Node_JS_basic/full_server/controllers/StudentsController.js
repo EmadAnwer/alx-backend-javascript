@@ -34,7 +34,7 @@ class StudentsController {
         } else {
           response
             .status(500)
-            .send(`Major parameter must be ${Object.keys(data).join(', ')}`);
+            .send(`Major parameter must be ${Object.keys(data).join(' or ')}`);
         }
       })
       .catch((err) => {
