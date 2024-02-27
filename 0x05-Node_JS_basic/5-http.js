@@ -60,6 +60,10 @@ const app = http
         .catch((error) => {
           console.log(error);
         });
+    } else {
+      res.setHeader('Content-Type', 'text/plain');
+      res.statusCode = 404;
+      res.end('This is not the page you are looking for');
     }
   })
   .listen(1245);
