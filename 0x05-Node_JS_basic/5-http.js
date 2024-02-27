@@ -49,11 +49,12 @@ const app = http
   // eslint-disable-next-line consistent-return
   .createServer((req, res) => {
     if (req.url === '/') {
+      res.setHeader('Content-Type', 'text/plain');
       return res.end('Hello Holberton School!');
     }
     if (req.url === '/students') {
       const path = process.argv[2];
-
+      res.setHeader('Content-Type', 'text/plain');
       countStudents(path)
         .then((studentsData) => res.end(studentsData))
         .catch((error) => {
