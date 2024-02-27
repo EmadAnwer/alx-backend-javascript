@@ -59,6 +59,8 @@ const app = http
         .catch((error) => {
           console.log(error);
         });
+    } else {
+      return res.end();
     }
   })
   .listen(1245);
