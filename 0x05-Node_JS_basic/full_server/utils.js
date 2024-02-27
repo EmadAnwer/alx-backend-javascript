@@ -8,7 +8,6 @@ async function readDatabase(path) {
         return reject();
       }
       const data = dataBuffer.toString().split('\n');
-      let count = 0;
       const fields = {};
 
       const firstnameIndex = data[0].split(',').indexOf('firstname');
