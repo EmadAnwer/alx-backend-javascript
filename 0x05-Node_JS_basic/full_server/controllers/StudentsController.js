@@ -21,7 +21,9 @@ class StudentsController {
         response.end();
       })
       .catch((err) => {
-        response.status(500).json(err.message);
+        response.writeHead(500, { 'Content-Type': 'text/plain' });
+        response.write(err.message);
+        response.end();
       });
   }
 
@@ -38,7 +40,9 @@ class StudentsController {
         }
       })
       .catch((err) => {
-        response.status(500).json(err.message);
+        response.writeHead(500, { 'Content-Type': 'text/plain' });
+        response.write(err.message);
+        response.end();
       });
   }
 }
