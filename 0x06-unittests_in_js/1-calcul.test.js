@@ -43,13 +43,15 @@ describe('calculateNumber', () => {
     it('not rounded', () => {
       assert.strictEqual(calculateNumber('DIVIDE', 1, 1), 1);
       assert.strictEqual(calculateNumber('DIVIDE', 1, 3), 1 / 3);
+      assert.strictEqual(calculateNumber('DIVIDE', 1.5, 2), 1);
     });
   });
 
   describe('test error', () => {
-    it('not rounded', () => {
+    it('error', () => {
       assert.strictEqual(calculateNumber('DIVIDE', 1, 0), 'Error');
       assert.strictEqual(calculateNumber('not a type', 1, 3), 'Error');
+      assert.strictEqual(calculateNumber('DIVIDE', 1, 0.4), 'Error');
     });
   });
 });
