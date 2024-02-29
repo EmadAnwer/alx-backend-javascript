@@ -10,5 +10,6 @@ describe('sendPaymentRequestToApi', () => {
     sinon.assert.calledWithMatch(consoleSpy, 'The total is: 10');
     sinon.assert.calledWithMatch(calculateNumberStub, 'SUM', 100, 20);
     consoleSpy.restore();
+    calculateNumberStub.restore();
   });
 });
